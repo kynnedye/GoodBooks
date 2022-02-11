@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 
 
-export default function GoalModal({setNumber, number,  setSaved, saved}) {
+export default function GoalModal({setNumber, number,  setSaved, saved, setGoalSet}) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -10,6 +10,7 @@ export default function GoalModal({setNumber, number,  setSaved, saved}) {
     const saveReadingGoal = (e) =>{
         e.preventDefault()
         setSaved(number)
+        setGoalSet(true)
         setShow(false)
 
     }

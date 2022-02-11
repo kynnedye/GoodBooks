@@ -12,6 +12,7 @@ function ContextProvider({children}){
     const [bookRead, setBookRead] = useLocalStorage("read",0)
     const [numberOfBooks, setNumberOfBooks] = useLocalStorage("goal", 0)
     const [savedGoal, setSavedGoal] = useLocalStorage("reading",0)
+    const [goalSet, setGoalSet] = useLocalStorage(false)
 
    
    
@@ -74,7 +75,7 @@ function ContextProvider({children}){
 
 const removeBook = (id) =>{
   setBookLibrary(prevBooks => prevBooks.filter(item => item.id !== id))
-  if(savedGoal > 0){
+  if(bookRead > 0){
     setBookRead(prev => prev - 1)
   }      
 }
@@ -103,7 +104,9 @@ const removeBook = (id) =>{
            savedGoal,
            numberOfBooks,
            setNumberOfBooks,
-           notRead
+           notRead,
+           goalSet,
+           setGoalSet
            
        }} >
             {children}
